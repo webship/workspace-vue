@@ -21,6 +21,14 @@ Feature: The views of the demo template
     When I return to the previous view
     Then the view's address should be "/posts"
 
+  # The latest post has no address of its own: a route middleware sends /posts/latest on to it.
+  Scenario: A link whose view the app redirects ends where it was sent
+    Given I am on "/posts"
+    When I use the "The latest post" link
+    Then the view should have changed in place
+    And the view's address should be "/posts/3"
+    And the new view should be announced as "Forms"
+
   Scenario: Data loaded again
     Given I am on "/posts"
     When I press "Load the posts again"

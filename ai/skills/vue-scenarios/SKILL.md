@@ -73,6 +73,9 @@ with `When I press "Add one to the count" by attr` (its `aria-label`).
 - **Links send no request when they are used:** the app fetched the view's code ahead for the links on the
   screen. Never assert a navigation by a request; `Then the view should have changed in place` reads what
   happened to the document.
+- **A redirect is one navigation.** A link whose view the app sends on (a route middleware returning `navigateTo`, a
+  route's redirect) ends at the address it was sent to: assert that one (`Then the view's address should be
+  "/posts/3"`), not the address of the link.
 - **The announcer follows the page's title, not the navigation:** Nuxt's announcer says the title each time the
   page's head is rendered. Give every view a title of its own (`useHead({ title })`), or two views announce the
   same.

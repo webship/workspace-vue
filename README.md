@@ -125,9 +125,9 @@ The builder deletes a project of the same name first, then makes a container wit
 
 **The demo template** is the official starter with the pages of the step pack's `demo/` over it, taken from the
 pack's npm package at the release the builder pins (`@webship-js/vue-steps` 2.0.0): the demo the builder makes is the
-one that release's features were proven on. It has a counter, an about page, posts loaded from a server route, a
-contact form that works without JavaScript and is sent in place with it, a page drawn in the browser only, and Nuxt's
-error page for a post that does not exist.
+one that release's features were proven on. It has a counter, an about page, posts loaded from a server route, a link
+whose view a route middleware redirects to the latest post, a contact form that works without JavaScript and is sent
+in place with it, a page drawn in the browser only, and Nuxt's error page for a post that does not exist.
 
 **The minimal template** is Nuxt's official starter alone: one welcome page, drawn by its `app.vue`. It has no
 `app/pages/` folder, so it has no router: it answers every address with the welcome page and the status 200. An unknown
