@@ -1,0 +1,100 @@
+{
+  "name": "@webship.co/workspace-vue",
+  "version": "1.0.0",
+  "description": "Vue for Webship Workspace: the builder (`cmd-vue-project.sh`) in every sites folder, which makes a Nuxt app with Nuxt's create tool (the official starter, with the Vue step pack's demo pages by default) or takes one from its repository, builds it and serves it from a container of its own (Node.js in the app's container; DDEV by default, or Docker Compose, Podman or Kubernetes with --runtime), the Vue step pack wired into the testing setup of such an app, and its AI items in their folders: two agents, a skill, a command and two prompts for building and testing Nuxt apps.",
+  "main": "dist/src/index.js",
+  "types": "dist/src/index.d.ts",
+  "license": "ISC",
+  "engines": {
+    "node": ">=24"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/webship/workspace-vue.git"
+  },
+  "files": [
+    "dist/src",
+    "ai",
+    "commands",
+    "features",
+    "scripts",
+    "testing",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "prepare": "npm run build",
+    "test": "npm run build && node --test dist/tests/*.test.js",
+    "lint": "tsc -p tsconfig.json --noEmit"
+  },
+  "workspacePlugin": {
+    "name": "vue",
+    "label": "Vue",
+    "needs": [
+      [
+        "dev",
+        "test",
+        "sandboxes",
+        "demos"
+      ],
+      "ai-agents",
+      "ai-skills",
+      "ai-commands",
+      "ai-prompts"
+    ],
+    "commands": {
+      "types": [
+        "sites"
+      ],
+      "workspaces": [
+        "dev",
+        "test",
+        "sandboxes",
+        "demos"
+      ],
+      "files": [
+        "commands/cmd-vue-project.sh"
+      ]
+    },
+    "scripts": {
+      "functions": [
+        "scripts/functions/fun-vue.sh"
+      ],
+      "args": [
+        "scripts/args/arg-vue.sh"
+      ],
+      "machine": [
+        "testing/site.feature"
+      ]
+    },
+    "ai": {
+      "agents": [
+        "ai/agents/vue-app-builder.md",
+        "ai/agents/vue-tester.md"
+      ],
+      "skills": [
+        "ai/skills/vue-scenarios"
+      ],
+      "commands": [
+        "ai/commands/vue-test.md"
+      ],
+      "prompts": [
+        "ai/prompts/vue-build-and-test.md",
+        "ai/prompts/vue-scenarios-for-an-app.md"
+      ]
+    },
+    "features": [
+      "features/vue.feature",
+      "features/vue-runtimes.feature"
+    ],
+    "featuresSite": "cmd-vue-project.sh ci-vue --install --runtime docker"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "@webship.co/workspace-plugin-api": "^1.0.13",
+    "typescript": "^5.9.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
