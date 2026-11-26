@@ -185,10 +185,10 @@ database, so on Kubernetes it needs core 1.0.35 or newer (webship/workspace#884)
 
 | Runtime | The address of the app | Proven with this builder |
 | --- | --- | --- |
-| DDEV (the default) | `https://<name>.ddev.site` | PROOF-DDEV |
-| Docker Compose (`--runtime docker`) | `http://127.0.0.1:<port>`, a free port kept in `compose.yaml` | PROOF-DOCKER |
-| Podman (`--runtime podman`) | `http://127.0.0.1:<port>` | PROOF-PODMAN |
-| Kubernetes (`--runtime kubernetes`) | `http://<node address>:<NodePort>` | PROOF-KUBERNETES |
+| DDEV (the default) | `https://<name>.ddev.site` | The demo template built and served in 1 min 11 s (Node.js 24 in DDEV's web container: the create tool, the demo pages of `@webship-js/vue-steps` 2.0.0 from npm, the packages and the build), wired up in 121 ms; a change of view in place and announced, the contact form answered in place and, without JavaScript, through the server; the starter alone in 59 s; the testing setup from npm (`@webship-js/vue-steps` 2.0.0, webship-js 2.0.18) and its first feature, 5 scenarios and 20 steps |
+| Docker Compose (`--runtime docker`) | `http://127.0.0.1:<port>`, a free port kept in `compose.yaml` | The demo template (`ci-vue`, the CI's featuresSite) built in 58 s, its files the host user's, wired up in 110 ms, the same checks; the testing setup and its first feature (5 scenarios, 20 steps), and the skill's three examples, each on its app: the demo's views (5 scenarios, 25 steps) and its contact form (3 scenarios, 17 steps), and the starter alone built with `--template minimal` in 1 min 8 s (2 scenarios, 8 steps; the testing setup writes it no first feature); an app from its repository, the Nuxt Hacker News app (`--source https://github.com/nuxt/hackernews.git`: Nuxt 4.7.0, pnpm 12.22.0 through corepack), built in 24 s, served and wired up; the plugin's features on the dashboard |
+| Podman (`--runtime podman`) | `http://127.0.0.1:<port>` | The starter alone built in 1 min 34 s with Node.js's own image, served, its files the host user's, wired up in 268 ms; the skill's starter example (2 scenarios, 8 steps); the plugin's features on the dashboard |
+| Kubernetes (`--runtime kubernetes`) | `http://<node address>:<NodePort>` | On kind (Kubernetes 1.37.0): the demo template built in 1 min 47 s, served at the node's address, wired up in 95 ms, a change of view in place and the contact form answered; the starter alone in 1 min 29 s; the plugin's features on the dashboard, 12 scenarios with the Docker Compose, Podman and Kubernetes apps up |
 
 A project of the builder is known by DDEV's file on DDEV and by its claim on another runtime, so the testing setup,
 the Users tools (which say there are no accounts) and the dashboard's row work the same on each. Lando and Docksal are
