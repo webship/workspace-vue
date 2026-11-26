@@ -1,3 +1,5 @@
+<p align="center"><img src="https://raw.githubusercontent.com/webship/workspace-vue/1.0.x/assets/logo.svg" alt="Vue logo" width="96"></p>
+
 # @webship.co/workspace-vue
 
 Vue for the [Webship Workspace](https://github.com/webship/workspace) dashboard: a builder that makes a Nuxt app with
@@ -127,6 +129,10 @@ one that release's features were proven on. It has a counter, an about page, pos
 contact form that works without JavaScript and is sent in place with it, a page drawn in the browser only, and Nuxt's
 error page for a post that does not exist.
 
+**The minimal template** is Nuxt's official starter alone: one welcome page, drawn by its `app.vue`. It has no
+`app/pages/` folder, so it has no router: it answers every address with the welcome page and the status 200. An unknown
+address shows Nuxt's error page only once the app has its first page in `app/pages/`.
+
 An app of your own must be a Nuxt app whose packages are its own:
 
 - **Its package manager** is read from its lock file: npm (`package-lock.json`, or none), pnpm or yarn, the last two
@@ -230,5 +236,5 @@ ISC (see `LICENSE`).
 
 ## Logo
 
-The logo of this plugin is pending the owner's decision: it comes before the first release. The Vue and Nuxt names are
-trademarks of their owners; this plugin is not affiliated with or endorsed by them.
+The Vue logo is the Vue team's, designed by Evan You, from github.com/vuejs/art, under CC BY-NC-SA 4.0
+(https://creativecommons.org/licenses/by-nc-sa/4.0/). It is not covered by this package's ISC licence.

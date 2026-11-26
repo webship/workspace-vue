@@ -84,6 +84,8 @@ with `When I press "Add one to the count" by attr` (its `aria-label`).
   Without JavaScript the server sends the browser back to the form, and the alert says it.
 - **A view drawn in the browser only** (`ssr: false`) is empty without JavaScript: tag its scenario
   `@needs-javascript`.
+- **No pages, no router:** an app without `app/pages/` (the official starter alone) answers every address with its
+  `app.vue` and the status 200. An unknown address shows the error page only once the app has pages.
 - **Two lanes.** `@needs-javascript` for a scenario that holds only with JavaScript, `@no-javascript` for one
   that holds only without it; never `@javascript`, which webship-js reads as "fail on any browser error".
 - **No fixed waits.** The steps wait on the app's own signals; a Then step waits for what it expects.
@@ -97,7 +99,7 @@ Three features that pass, each against the app it names:
 - [`examples/contact.feature`](examples/contact.feature): the demo's contact form, taken and turned down (the
   same app).
 - [`examples/starter.feature`](examples/starter.feature): the official starter alone
-  (`bash cmd-vue-project.sh nxmin --template minimal --install`), its welcome page and the error page.
+  (`bash cmd-vue-project.sh nxmin --template minimal --install`), its welcome page, at any address.
 
 ## The book
 

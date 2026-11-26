@@ -10,7 +10,10 @@ Feature: The official starter
     Then the page should be wired up
     And I should see "Get started"
 
-  Scenario: An address the app does not know shows its error page
+  # The starter has no pages folder, so it has no router: its app.vue answers every address, with the status 200.
+  # An error page for an unknown address comes with the app's first page in app/pages/.
+  Scenario: Every address shows the welcome page
     Given I am on "/no-such-page"
-    Then the view should be the 404 error page saying "Page not found"
-    And the response status code should be 404
+    Then the response status code should be 200
+    And the page should be wired up
+    And I should see "Get started"
